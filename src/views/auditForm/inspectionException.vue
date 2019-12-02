@@ -60,7 +60,7 @@
 
 <script>
 import Search from "@/components/search";
-import { Tabbar, TabbarItem, XButton, XDialog, TransferDomDirective as TransferDom  } from "vux";
+import { Tabbar, TabbarItem, XButton, XDialog, TransferDom  } from "vux";
 import { JDGetIncomingList } from "@/api/getData";
 export default {
   data() {

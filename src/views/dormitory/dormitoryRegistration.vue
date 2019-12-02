@@ -127,7 +127,7 @@ export default {
     async getWaitForCheckInEmpList() {
 			console.log(this.userInfo[0])
       let data = await JDGetWaitForCheckInEmpList({
-				FNumber: this.FNumber , FUserID: "362"
+				FNumber: this.FNumber , FUserID: this.userInfo[0].FUserID
 				
 				//FNumber: this.userInfo[0].fnumber , FUserID: this.userInfo[0].FUserID
 			})

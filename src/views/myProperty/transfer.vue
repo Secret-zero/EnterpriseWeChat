@@ -154,7 +154,6 @@ export default {
     async confirm() {
       if (!this.EmpCode) return this.$vux.toast.text('请填写接收人工号');
       if (!this.value5[0]) return this.$vux.toast.text('请选择调拨原因');
-      alert(this.employeeInfo[0].FOrganizeID)
       let obj = {
         FInterID: '',
         FNumber: '',
@@ -189,7 +188,6 @@ export default {
         obj.Fdate = new Date().getFullYear() + '-' +  (new Date().getMonth() + 1) + '-' + new Date().getDate()
         obj.FCardID  = item.FCardID
 				obj.FQty = item.FQty
-				alert(item.manager)
         obj.FOldManager = this.oldRecipient.FLiableEmpName//item.FOldManager
         obj.FOldLiableEmpID = this.oldRecipient.FLiableEmpID 
         obj.FManager = this.recipient.FLiableEmpName

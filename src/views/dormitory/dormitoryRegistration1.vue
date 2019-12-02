@@ -1,7 +1,7 @@
 <template>
 	<div class="wrap" id="wrap">
 		<div class="list">
-			<form onkeydown="if(event.keyCode==13) return false;" >
+			<form @submit="confirm" >
 				<ul>
 					<div style="float:right"><img :src="'http://220.189.245.171:8083/'+result.FFullName" /></div>
 					<li>
@@ -89,7 +89,8 @@
 							<img :src="'http://220.189.245.171:8083/'+result.FSpouseFullName" />
 						</div>
 					</li> -->
-					<x-button :gradients="['#d93309', '#aa0000']" class="button" @click.native="toInfo()">选择宿舍</x-button>
+					<x-button style="width:100%" :gradients="['#d93309', '#aa0000']" class="button" @click.native="toInfo()">选择宿舍</x-button>
+				
 					<li>
 						<div class="title">床铺号：</div>
 						<div class="content">{{item.FNumber}}</div>
@@ -164,7 +165,7 @@
 					</li>
 				</ul>
 				<div class="invitation">
-					<input type="submit" class="weui-btn inputbutton" @click="confirm($event)">
+					<input type="submit" class="weui-btn inputbutton" :disabled="disable001" :value="submit001" :style="color001">
 					<!-- <x-button :gradients="['#d93309', '#aa0000']" class="button" @click.native="confirm($event)">提交</x-button> -->
 				</div>
 			</form>
@@ -182,6 +183,7 @@ import {
 import { mapState } from "vuex";
 import { XButton, Alert, Tabbar, TabbarItem, Flexbox, FlexboxItem, Datetime } from "vux";
 import $ from "jquery";
+import moment from 'moment'
 export default {
 	data() {
 		return {
@@ -190,27 +192,30 @@ export default {
 			departList: [],
 			departList2: [],
 			departName: "",
-			Fdate: "2019-05-09",
+			Fdate: moment(new Date()).format('YYYY-MM-DD'),
 			FHobby: "",
 			FNote: "",
 			item: {
 				FNumber: "",
 				FFPZT: "",
 				FOrganizeName: ""
-			}
+			},
+			submit001:'提交',
+			disable001:false,
+			color001:{}
 		};
 	},
 	components: {XButton,Alert,Tabbar,TabbarItem,Flexbox,FlexboxItem, Datetime},
 	mounted() {
-		if (this.$route.query.item != undefined) {
+		if (this.$route.query.item != undefined&&this.$route.query.item !="") {
 			this.item = JSON.parse(this.$route.query.item);
 			console.info(this.item);
 		}
-		if (this.$route.query.FItemID != undefined) {
+		if (this.$route.query.FItemID != undefined&&this.$route.query.FItemID !="") {
 			this.FItemID = this.$route.query.FItemID;
 			this.getEmpRegisterInfo();
 		}
-		if (this.$route.query.FSpouseEmpNumber != undefined) {
+		if (this.$route.query.FSpouseEmpNumber != undefined&&this.$route.query.FSpouseEmpNumber !="") {
 			this.result.FSpouseEmpNumber = this.$route.query.FSpouseEmpNumber;
 			console.info(this.$route.query.FSpouseEmpNumber);
 			this.clickSpouse(this.result.FSpouseEmpNumber);
@@ -298,7 +303,7 @@ export default {
 		async getWaitForCheckInEmpList() {
 			let data = await JDGetWaitForCheckInEmpList({
 				FNumber: this.result.FSpouseEmpNumber,
-				FUserID: "362"
+				FUserID: this.userInfo[0].FUserID
 
 				//FNumber: this.result.FSpouseEmpNumber , FUserID: this.userInfo[0].FUserID
 			});
@@ -320,7 +325,7 @@ export default {
 			this.showBox = false;
 			let data = await JDGetWaitForCheckInEmpList({
 				FNumber: FSpouseEmpNumber,
-				FUserID: "362"
+				FUserID: this.userInfo[0].FUserID
 				//FNumber: this.result.FSpouseEmpNumber , FUserID: this.userInfo[0].FUserID
 			});
 			console.info("11"+this.result.FSpouseEmpName)
@@ -347,12 +352,18 @@ export default {
 			console.info(Json)
 			let data = await JDSubmitSsDormitory({
 				FEmpCode: this.result.FEmpNumber,
-				Json:Json
+				Json:JSON.stringify(Json)
 			})
 			
 		},
-		confirm() {
+		confirm(e) {
 			this.submitSsDormitory();
+			this.disable001=true
+			this.submit001='已提交'
+			this.color001={background:"#b2b2b2"}
+			e.preventDefault();
+			
+			
 			
 		}
 	}

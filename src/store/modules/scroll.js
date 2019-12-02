@@ -1,5 +1,5 @@
 const state = {
-	indexScroll: ''
+	indexScroll: ""
 };
 
 const getters = {

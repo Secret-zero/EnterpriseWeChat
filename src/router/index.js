@@ -688,6 +688,39 @@ export default new Router({
 			component: (resovle) => {
 				require(["../views/index/baiduVerify.vue"], resovle);
 			}
+		},
+		{
+			path: "/patrol",
+			name: "patrol",
+			meta: {
+				keepAlive: false,
+				title: "巡查记录"
+			},
+			component: (resovle) => {
+				require(["../views/patrol/patrol.vue"], resovle);
+			}
+		},
+		{
+			path: "/myWagesSignature",
+			name: "myWagesSignature",
+			meta: {
+				keepAlive: false,
+				title: "签字确认"
+			},
+			component: (resovle) => {
+				require(["../views/myWages/myWagesSignature.vue"], resovle);
+			}
+		},
+		{
+			path: "/myWagesTest",
+			name: "myWagesTest",
+			meta: {
+				keepAlive: false,
+				title: "签字确认测试"
+			},
+			component: (resovle) => {
+				require(["../views/myWages/myWagesTest.vue"], resovle);
+			}
 		}
 	],
 	scrollBehavior (to, from, savedPosition) {

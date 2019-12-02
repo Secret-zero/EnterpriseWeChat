@@ -371,7 +371,13 @@ export const JDAuditExceptionHandling = (data) => axios(baseUrl + "/ErpForAndroi
  * 调用微信二维码
  * @param {string} urlPage
  */
-export const JDScanQRCode = (data) => axios(baseUrl + "/ErpForAndroidSever.asmx/ScanQRCode", data);
+export const JDScanQRCode = (data) => axios(baseUrl + "/ErpForAppServer.asmx/ScanQRCode", data);
+
+/**
+ * 获取企业签名
+ * @param {string} urlPage
+ */
+export const JDWorkSignature = (data) => axios(baseUrl + "/ErpForAppServer.asmx/WorkSignature", data);
 
 /**
  * 获取物料
@@ -439,3 +445,18 @@ export const JDGetVerify = (data) => axios(baseUrl2 + "/TransferService.asmx/Get
  * 活体认证+人脸对比
  */
 export const JDGetMatch = (data) => axios(baseUrl2 + "/TransferService.asmx/GetMatch", data);
+
+/**
+ * 活体认证+人脸对比
+ */
+export const JDPatrolRecord = (data) => axios(baseUrl + "/ErpForAppServer.asmx/PatrolRecord", data);
+
+/**
+ * 工资签字
+ */
+export const JDSaveFaceRecognition = (data) => axios(baseUrl + "/ErpForAppServer.asmx/SaveFaceRecognition", data);
+
+/**
+ * 请假申请
+ */
+export const JDAskForLeave = (data) => axios(baseUrl + "/ErpForOAServer.asmx/AskForLeave", data);

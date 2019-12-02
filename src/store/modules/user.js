@@ -1,11 +1,11 @@
-import cookie from 'js-cookie'
-import Vue from 'vue'
+import cookie from "js-cookie";
+import Vue from "vue";
 
 const state = {
-}
+};
 
 const getters = {
-}
+};
 
 // 异步调用
 // const actions = {
@@ -19,11 +19,11 @@ const getters = {
 
 // 同步调用
 const mutations = {
-}
+};
 
 export default {
 	state,
 	getters,
 	// actions,
 	mutations
-}
+};

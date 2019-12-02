@@ -35,7 +35,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class='title'>人事</div>
+		<div class='title' v-if="(wxOpenId='ob9om0qgx8lhG0M3OkcI7SfAJo74')|| (wxOpenId='ob9om0g2okbv9_TXs-sCPpW0RD0o')||( wxOpenId='ob9om0tCsmvYG4WGZQgaG5TF4jaY')">人事</div>
 		<div class='applications'>
 			<ul>
 				<li v-for='(item, index) in list3' :key='index' @click='linkInfo(item)'>
@@ -79,13 +79,17 @@ export default {
 				// {name: '成型当日产量', icon: require('../../assets/images/icon11.png'), linkInfo: '/dailyOutput'},
 				{name: '车间当日产量', icon: require('../../assets/images/icon12.png'), linkInfo: '/workShop'},
 				{name: '当日汇报查看', icon: require('../../assets/images/icon13.png'), linkInfo: '/reportView'},
-			  // {name: '实人认证', icon: require('../../assets/images/icon13.png'), linkInfo: '/h5Verify'},
-				// {name: 'ceshi', icon: require('../../assets/images/icon13.png'), linkInfo: '/inspectionTest'},
+			  
 				
 				// {name: '合理化建议', icon: require('../../assets/images/icon16.png'), linkInfo: '/suggest'}
 			],
 			list3:[
-			  {name: '宿舍管理', icon: require('../../assets/images/icon17.png'), linkInfo: '/dormitory'}
+				{name: '宿舍管理', icon: require('../../assets/images/icon17.png'), linkInfo: '/dormitory'},
+				// {name: '巡查', icon: require('../../assets/images/icon18.png'), linkInfo: '/patrol'},
+				// {name: '签字', icon: require('../../assets/images/icon18.png'), linkInfo: '/myWagesSignature'}
+				
+				// {name: '实人认证', icon: require('../../assets/images/icon13.png'), linkInfo: '/h5Verify'},
+				// {name: '测试', icon: require('../../assets/images/icon13.png'), linkInfo: '/inspectionTest'}
 			],
 			userInfo1: {FPicUrl: require('../../assets/images/avatar.png')}
 		};

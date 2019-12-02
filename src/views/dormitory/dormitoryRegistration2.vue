@@ -4,13 +4,11 @@
       <x-button slot="right" type="primary" mini @click.native="getCheckedRoomBedInfo()">搜索</x-button>
     </x-input>
     <div class="list" style="background: #e2e2e2;" >
-      <ul>
-        <li
-				v-for="(item, index) in result"
+      <ul v-for="(item, index) in result"
 				:key="index"
 				class="mt20"
-				:style="index%2 === 0 ? 'background: #00BFFF' : 'background: #fff'"
-				>
+				:style="index%2 === 0 ? 'background: #00BFFF' : 'background: #fff'">
+        <li v-if="index<50">
 					<flexbox>
 						<flexbox-item>
 							<div class="flex-demo">床铺号：{{item.FNumber}}</div>

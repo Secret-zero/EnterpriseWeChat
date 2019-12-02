@@ -43,7 +43,7 @@
 
 <script>
 import { JDgetSmsCode, JDWeChatBindingUser,getUserInfo } from '@/api/getData'
-import { Countdown,CheckIcon,TransferDom,Popup,XButton} from 'vux'
+import { Countdown,CheckIcon,Popup,XButton,TransferDomDirective as TransferDom} from 'vux'
 export default {
   data() {
     return {			
@@ -65,7 +65,10 @@ export default {
 		};
 	},
 	computed: {},
-  components: {Countdown,CheckIcon,TransferDom,Popup,XButton},
+	directives: {
+    TransferDom
+  },
+  components: {Countdown,CheckIcon,Popup,XButton},
   mounted() {
 		if (this.$route.query.openId) { // 登录
 			this.$store.commit('SET_WXOPENID', this.$route.query.openId)

@@ -17,14 +17,14 @@ export default {
 	data () {
 		return {
 			list: [
-				{name: '新增房间床铺', icon: require('../../assets/images/icon17-1.png'), linkInfo: '/bedsAdd'},
+				// {name: '新增房间床铺', icon: require('../../assets/images/icon17-1.png'), linkInfo: '/bedsAdd'},
 				{name: '入住登记', icon: require('../../assets/images/icon17-2.png'), linkInfo: '/dormitoryRegistration'},
-				{name: '换房登记', icon: require('../../assets/images/icon17-3.png'), linkInfo: '/dormitoryExchange'},
-				{name: '退宿登记', icon: require('../../assets/images/icon17-4.png'), linkInfo: '/dormitoryExit'},
-				{name: '住外补贴登记', icon: require('../../assets/images/icon17-5.png'), linkInfo: '/liveOutsideSubsidies'},
-				{name: '水电表登记', icon: require('../../assets/images/icon17-6.png'), linkInfo: '/waterElectricMeterRegistration'},
-				{name: '水电表抄度管理', icon: require('../../assets/images/icon17-7.png'), linkInfo: '/waterElectricMeterCopy'},
-				{name: '房间维护维修', icon: require('../../assets/images/icon17-8.png'), linkInfo: '/dormitoryRepair'}
+				// {name: '换房登记', icon: require('../../assets/images/icon17-3.png'), linkInfo: '/dormitoryExchange'},
+				// {name: '退宿登记', icon: require('../../assets/images/icon17-4.png'), linkInfo: '/dormitoryExit'},
+				// {name: '住外补贴登记', icon: require('../../assets/images/icon17-5.png'), linkInfo: '/liveOutsideSubsidies'},
+				// {name: '水电表登记', icon: require('../../assets/images/icon17-6.png'), linkInfo: '/waterElectricMeterRegistration'},
+				// {name: '水电表抄度管理', icon: require('../../assets/images/icon17-7.png'), linkInfo: '/waterElectricMeterCopy'},
+				// {name: '房间维护维修', icon: require('../../assets/images/icon17-8.png'), linkInfo: '/dormitoryRepair'}
 			]
 		};
 	},
